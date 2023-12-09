@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 
 import cmd
-import models
-
+from models import BaseModel, storage
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
@@ -14,23 +13,24 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, arg):
         """Quite command to end the program"""
         return True
-
+    
     def emptyline(self):
         """an empty line + ENTER will execute anything"""
         pass
+
     def do_create(self, arg):
         """Create command will create a new instance of the specified model."""
         if not arg:
             print("** class name missing **")
             return
-
+        
         if not arg == 'BaseModel':
             print("** class doesn't exist **")
             return
-
+        
         baseModel = BaseModel()
-        models.storage.new(baseModel)
-        models.storage.save()
+        storage.new(baseModel)
+        storage.save()
         print(baseModel.id)
 
     def do_show(self, arg):
@@ -38,16 +38,16 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
-
+        
         args = arg.split(" ")
-
+        
         if len(args) != 2:
             if not args[0] == "BaseModel":
                 print("** class doesn't exist **")
                 return
             print("** instance id missing **")
             return
-
+        
         className = args[0]
         id = args[1]
         for key, value in storage.all().items():
@@ -61,16 +61,16 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
-
+        
         args = arg.split(" ")
-
+        
         if len(args) != 2:
             if not args[0] == "BaseModel":
                 print("** class doesn't exist **")
                 return
             print("** instance id missing **")
             return
-
+        
         className = args[0]
         id = args[1]
         for key, value in storage.all().items():
@@ -100,9 +100,9 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
-
+        
         args = arg.split(" ")
-
+        
         if len(args) == 1:
             if args[0] != "BaseModel":
                 print("** class doesn't exist **")
@@ -116,8 +116,8 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 3:
             print("** value missing **")
             return
-
-
+            
+        
         className = args[0]
         if className != "BaseModel":
             print("** class doesn't exist **")
@@ -135,3 +135,4 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
+
