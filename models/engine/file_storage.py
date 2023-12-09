@@ -12,6 +12,8 @@ from models.review import review
 
 class FileStorage:
     """Class for handling serialization and deserialization of objects."""
+    def __init__(self):
+        """Constructor for FileStorage."""
     self.__file_path = "file.json"
     self.__objects = {}
 
