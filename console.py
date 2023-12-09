@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import cmd
-from models import BaseModel, storage
+import models
 
 
 class HBNBCommand(cmd.Cmd):
@@ -29,8 +29,8 @@ class HBNBCommand(cmd.Cmd):
             return
 
         baseModel = BaseModel()
-        storage.new(baseModel)
-        storage.save()
+        models.storage.new(baseModel)
+        models.storage.save()
         print(baseModel.id)
 
     def do_show(self, arg):
