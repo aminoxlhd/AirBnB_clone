@@ -3,7 +3,7 @@ from models.base_model import BaseModel
 """ Defines 'amenity' class"""
 
 
-class amenity(BaseModel):
+class Amenity(BaseModel):
     """
     Class representing amenities associated with places.
     Attributes:

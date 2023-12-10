@@ -3,7 +3,7 @@
 from models.base_model import BaseModel
 
 
-class review(BaseModel):
+class Review(BaseModel):
     """
     Class representing reviews associated with places.
 

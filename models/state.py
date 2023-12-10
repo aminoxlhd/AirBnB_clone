@@ -3,7 +3,7 @@ from models.base_model import BaseModel
 """ Defines the 'state' class"""
 
 
-class state(BaseModel):
+class State(BaseModel):
     """
     Class representing states.
 

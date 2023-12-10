@@ -3,7 +3,7 @@ from models.base_model import BaseModel
 """Defines the Place class."""
 
 
-class place(BaseModel):
+class Place(BaseModel):
     """
     Class representing places available for booking.
 

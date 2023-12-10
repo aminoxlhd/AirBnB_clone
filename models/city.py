@@ -3,7 +3,7 @@ from models.base_model import BaseModel
 """Defines the 'city' class"""
 
 
-class city(BaseModel):
+class City(BaseModel):
     """
     Class representing cities.
 
