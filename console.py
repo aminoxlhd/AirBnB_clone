@@ -154,12 +154,12 @@ class HBNBCommand(cmd.Cmd):
             "count": self.do_count,
         }
         if "." in arg:
-            search = re.search(r"\.", arg)
-            if search is not None:
-                args = [arg[:search.span()[0]], arg[search.span()[1]:]]
+            s = re.search(r"\.", arg)
+            if s is not None:
+                args = [arg[:s.span()[0]], arg[s.span()[1]:]]
                 search = re.search(r"\((.*?)\)", args[1])
-                if search is not None:
-                    command = [args[1][:search.span()[0]], search.group()[1:-1]]
+                if s is not None:
+                    command = [args[1][:s.span()[0]], s.group()[1:-1]]
                     if command[0] in commands.keys():
                         method_args = "{} {}".format(args[0], command[1])
                         return commands[command[0]](method_args)
